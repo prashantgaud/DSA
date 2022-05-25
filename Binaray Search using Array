@@ -1,0 +1,50 @@
+package practice;
+
+import java.util.Scanner;
+
+public class Test1{
+	
+	void bsearch(int arr[],int key, int l,int r) {
+	
+		
+		//Binary Search
+		// Array must be sorted
+		int mid=l+(r-l)/2;
+		
+		while(l<=r) 
+		{
+			if(arr[mid]==key) {
+				System.out.println("Key found at index "+mid);
+				return; // Once we get output return
+			}
+			else if(arr[mid]<key) {  // Mid of array element is less then key then we will more on right side of array
+				l=mid+1;   // if you use arr[mid] instead of mid then it will be wrong as you will get value at mid index not mid index
+			}
+			else
+			{
+				r=mid-1;
+			}
+			mid=l+(r-1)/2;
+			
+		}
+		if(l>r)
+		System.out.println("Key not found");
+	}	
+	
+	
+	public static void main(String[] args) {
+	
+		int arr[]= {1,23,45,65,557,57575};
+		Scanner s=new Scanner(System.in);
+		System.out.println("Which element you want to search in Array: ");
+		int key=s.nextInt();
+		int l=0;
+		int r=arr.length-1;
+
+	
+	Test1 t=new Test1();
+	t.bsearch(arr, key, l, r);
+	
+		
+	}
+}
